@@ -1,8 +1,8 @@
 import React from 'react'
-import { RegisterComponent } from 'components'
+import { RegisterContainer } from 'containers/authentication/Register'
 
 const RegisterPage: React.FC = () => {
-  return <RegisterComponent />
+  return <RegisterContainer />
 }
 
 export default RegisterPage

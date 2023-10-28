@@ -6,6 +6,9 @@ import BgCenter from 'assets/img/img-center.png'
 export const PATHS = {
   LOGIN: '/login',
   REGISTER: '/register',
+  FORGOT: '/forgot',
+  VERIFY: '/verify',
+  VERIFIED: '/verified',
 }
 
 export const IMGS = {
