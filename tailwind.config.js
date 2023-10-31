@@ -168,7 +168,7 @@ module.exports = {
       borderCol: 'rgba(0, 0, 0, 0.1)',
       textCol1: 'rgba(0, 0, 0, 0.5)',
       textCol2: '#666',
-      red: '#F00',
+      redCol: '#F00',
     }),
     columns: {
       auto: 'auto',

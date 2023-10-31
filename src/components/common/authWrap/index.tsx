@@ -9,7 +9,6 @@ export const AuthWrapComponent: React.FC<Props> = (props) => {
   return (
     <>
       <div className="bg-[url('assets/img/left-img.png')] bg-no-repeat bg-contain h-full w-full absolute top-0 left-0 z-10">
-        {/* <div className="bg-[url('assets/img/bg-blur.png')] bg-cover bg-no-repeat h-full w-full absolute top-0 left-0"></div> */}
         <img src={IMGS.BGBLUR} alt="" className="w-full" />
       </div>
 

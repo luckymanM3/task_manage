@@ -9,6 +9,7 @@ export const PATHS = {
   FORGOT: '/forgot',
   VERIFY: '/verify',
   VERIFIED: '/verified',
+  DASHBOARD: '/dashboard',
 }
 
 export const IMGS = {
