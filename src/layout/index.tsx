@@ -8,13 +8,13 @@ interface Props {
 
 export const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <>
+    <div className="flex h-full">
       <SideBar />
-      <div>
+      <div className=" h-full w-full bg-contentCol">
         <Header />
-        {children}
+        <div>{children}</div>
       </div>
-    </>
+    </div>
   )
 }
 

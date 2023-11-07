@@ -169,6 +169,11 @@ module.exports = {
       textCol1: 'rgba(0, 0, 0, 0.5)',
       textCol2: '#666',
       redCol: '#F00',
+      contentCol: '#F3F4F8',
+      sidebarBtnCol: '#6772FE',
+      bookmarkTextCol: '#5B6871',
+      cardTitleCol: '#232360',
+      cardDescCol: '#768396',
     }),
     columns: {
       auto: 'auto',

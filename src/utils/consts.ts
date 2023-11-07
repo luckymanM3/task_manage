@@ -15,6 +15,9 @@ export const PATHS = {
   VERIFY: '/verify',
   VERIFIED: '/verified',
   DASHBOARD: '/dashboard',
+  SEND: '/inbox',
+  SETTING: '/setting',
+  HELP: '/help',
 }
 
 export const IMGS = {
