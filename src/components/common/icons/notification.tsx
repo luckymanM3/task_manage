@@ -5,6 +5,7 @@ export const NotificationIconComponent: React.FC<
 > = () => {
   return (
     <svg
+      className="absolute bottom-[4px]"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="30"

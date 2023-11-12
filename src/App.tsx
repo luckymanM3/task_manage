@@ -8,6 +8,7 @@ import ForgotPasswordPage from 'pages/authentication/ForgotPasswordPage'
 import VerifyPage from 'pages/authentication/VerifyPage'
 import VerifySuccessPage from 'pages/authentication/VerifySuccessPage'
 import DashboardPage from 'pages/dashboard'
+import CreateBoardPage from 'pages/boards'
 
 const App: React.FC = () => {
   // const location = useLocation();
@@ -22,6 +23,7 @@ const App: React.FC = () => {
           <Route path={PATHS.VERIFY} element={<VerifyPage />} />
           <Route path={PATHS.VERIFIED} element={<VerifySuccessPage />} />
           <Route path={PATHS.DASHBOARD} element={<DashboardPage />} />
+          <Route path={PATHS.CREATEBOARD} element={<CreateBoardPage />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -174,6 +174,8 @@ module.exports = {
       bookmarkTextCol: '#5B6871',
       cardTitleCol: '#232360',
       cardDescCol: '#768396',
+      nitifyCol: '#FF3030',
+      createBorderCol: '#E6E5E5',
     }),
     columns: {
       auto: 'auto',

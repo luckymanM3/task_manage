@@ -13,8 +13,8 @@ import { IMGS, PATHS } from 'utils/consts'
 
 export const RegisterComponent: React.FC = () => {
   const navigate = useNavigate()
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const submitHandler = (e: React.MouseEvent<HTMLElement>) => {
+
+  const submitHandler = (e: React.MouseEvent<HTMLElement>): void => {
     e.preventDefault()
     navigate(PATHS.LOGIN)
   }

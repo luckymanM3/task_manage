@@ -1,15 +1,19 @@
 import React from 'react'
 import { CategoryComponent, CardComponent } from 'components'
+import { type RootState } from 'store'
+import { useSelector } from 'react-redux'
 
 export const DashboardComponent: React.FC = () => {
+  const { boardTitle } = useSelector((root: RootState) => root.tickets)
+
   return (
-    <div className="pt-[35px] pb-[35px] pl-[20px] pr-[20px]">
+    <div>
       <div className="mb-[4.875rem]">
         <div className="text-[12px] text-bookmarkTextCol font-normal leading-4">
-          Projects &gt; My Tasks
+          Projects &gt; {boardTitle}
         </div>
         <div className="text-black text-[36px] font-bold leading-[3rem] tracking-[-0.792px]">
-          My Tasks
+          {boardTitle}
         </div>
       </div>
       <div>
