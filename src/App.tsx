@@ -9,9 +9,14 @@ import VerifyPage from 'pages/authentication/VerifyPage'
 import VerifySuccessPage from 'pages/authentication/VerifySuccessPage'
 import DashboardPage from 'pages/dashboard'
 import CreateBoardPage from 'pages/boards'
+import CreateCategoryPage from 'pages/categories'
+import { useDispatch } from 'react-redux'
+import { initState } from 'store/slices/tickets.slice'
 
 const App: React.FC = () => {
   // const location = useLocation();
+  const dispatch = useDispatch()
+  dispatch(initState())
 
   return (
     <div className="flex flex-col h-screen">
@@ -24,6 +29,7 @@ const App: React.FC = () => {
           <Route path={PATHS.VERIFIED} element={<VerifySuccessPage />} />
           <Route path={PATHS.DASHBOARD} element={<DashboardPage />} />
           <Route path={PATHS.CREATEBOARD} element={<CreateBoardPage />} />
+          <Route path={PATHS.CREATECATEGORY} element={<CreateCategoryPage />} />
         </Routes>
       </BrowserRouter>
     </div>

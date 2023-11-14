@@ -9,19 +9,33 @@ import {
   SearchIconComponent,
 } from 'components'
 import { IMGS, PATHS } from 'utils/consts'
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCurrentBoardId } from 'store/slices/tickets.slice'
 import { type RootState } from 'store'
 
 const Header: React.FC = () => {
   const [isShowSubMenu, setIsShowSubMenu] = useState<boolean>(false)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-  const { boardTitle, boards } = useSelector((root: RootState) => root.tickets)
+  const { boards, categories } = useSelector((root: RootState) => root.tickets)
+
+  const toDashboard = (id: number): void => {
+    dispatch(setCurrentBoardId(id))
+    setIsShowSubMenu(false)
+    navigate(PATHS.DASHBOARD)
+  }
+
+  const toCreateBoard = (): void => {
+    // current
+    navigate(PATHS.CREATEBOARD)
+  }
 
   return (
     <div className="h-[4.5rem] bg-white pt-2 pb-[1px] pl-3 pr-3 flex justify-between">
       <div className="flex">
-        {boardTitle !== '' && boards.length > 0 && (
+        {boards.length > 0 && categories.length > 0 && (
           <>
             <button
               onClick={() => {
@@ -45,18 +59,28 @@ const Header: React.FC = () => {
         )}
         {isShowSubMenu && (
           <div className="sub-board-menu absolute w-[172px] border-[1px] border-solid bg-white border-createBorderCol rounded-[10px] top-[52px] left-[90px] z-10">
-            <div className="add-my-task flex justify-between items-center w-full h-[36px] pl-[25px] pr-[15px]">
-              <span>My Tasks</span>
-              <EditBoardIconComponent />
-            </div>
+            {boards.map((board) => {
+              return (
+                <div
+                  onClick={() => {
+                    toDashboard(board.id)
+                  }}
+                  key={board.id}
+                  className="add-my-task flex justify-between items-center w-full h-[36px] pl-[25px] pr-[15px]"
+                >
+                  <button>{board.title}</button>
+                  <EditBoardIconComponent />
+                </div>
+              )
+            })}
             <div className="create-board w-full h-[36px] pl-[25px] pr-[15px] text-left">
-              <Link to={PATHS.CREATEBOARD}>Create a Board</Link>
+              <button onClick={toCreateBoard}>Create a Board</button>
             </div>
           </div>
         )}
       </div>
       <div className="flex items-center mr-10">
-        {boardTitle !== '' && boards.length > 0 && (
+        {boards.length > 0 && categories.length > 0 && (
           <div className="search relative mr-24">
             <input
               type="text"
@@ -69,7 +93,7 @@ const Header: React.FC = () => {
           </div>
         )}
         <div className="flex gap-10 items-stretch">
-          {boardTitle !== '' && boards.length > 0 && (
+          {boards.length > 0 && categories.length > 0 && (
             <button className="h-[43px] pl-[14px] pr-[14px] text-white bg-customCol3 rounded-[10px] text-[14px] font-medium">
               + Create New Task
             </button>

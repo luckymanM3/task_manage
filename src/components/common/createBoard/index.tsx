@@ -3,8 +3,10 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useDispatch } from 'react-redux'
-import { setBoardTitle } from 'store/slices/tickets.slice'
+import { addBoard } from 'store/slices/tickets.slice'
 import { type IBoardTitle } from 'types'
+import { useNavigate } from 'react-router-dom'
+import { PATHS } from 'utils/consts'
 
 const schema = yup
   .object()
@@ -18,10 +20,11 @@ export const CreateBoardCardComponent: React.FC = () => {
   const { register, handleSubmit } = useForm<IBoardTitle>({
     resolver: yupResolver(schema),
   })
+  const navigate = useNavigate()
 
   const submitHandler = (data: IBoardTitle): void => {
-    console.log(data)
-    dispatch(setBoardTitle(data.boardTitle))
+    dispatch(addBoard(data.boardTitle))
+    navigate(PATHS.CREATECATEGORY)
   }
 
   return (

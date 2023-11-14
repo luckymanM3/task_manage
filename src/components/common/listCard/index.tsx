@@ -1,11 +1,11 @@
 import React from 'react'
 import { DotIconComponent, CancelIconComponent } from '../icons'
-import { removeBoardItem } from 'store/slices/tickets.slice'
+import { removeCategoryItem } from 'store/slices/tickets.slice'
 import { useDispatch } from 'react-redux'
 
 interface Props {
-  title: string
-  id: number
+  title?: string
+  id?: number
 }
 
 export const ListCardComponent: React.FC<Props> = (props) => {
@@ -14,7 +14,7 @@ export const ListCardComponent: React.FC<Props> = (props) => {
   const dispatch = useDispatch()
 
   const deleteCategory = (): void => {
-    dispatch(removeBoardItem(id))
+    dispatch(removeCategoryItem(id))
   }
 
   return (
