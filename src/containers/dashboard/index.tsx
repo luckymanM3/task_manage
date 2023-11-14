@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { DashboardComponent } from 'components'
 import { useSelector } from 'react-redux'
 import { type RootState } from 'store'
@@ -9,10 +9,12 @@ export const DashboardContainer: React.FC = () => {
   // const dispatch = useDispatch();
   const navigate = useNavigate()
 
-  const { boardTitle, boards } = useSelector((root: RootState) => root.tickets)
-  if (boardTitle === '' || boards.length === 0) {
-    navigate(PATHS.CREATEBOARD)
-  }
+  const { boards, categories } = useSelector((root: RootState) => root.tickets)
+  useEffect(() => {
+    if (boards.length === 0 || categories.length === 0) {
+      navigate(PATHS.CREATEBOARD)
+    }
+  }, [])
 
   return (
     <div>

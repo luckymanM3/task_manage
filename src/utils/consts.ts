@@ -20,6 +20,7 @@ export const PATHS = {
   SETTING: '/setting',
   HELP: '/help',
   CREATEBOARD: '/createboard',
+  CREATECATEGORY: '/createcategory',
 }
 
 export const IMGS = {

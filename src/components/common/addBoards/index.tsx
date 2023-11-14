@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useDispatch } from 'react-redux'
-import { addBoard } from 'store/slices/tickets.slice'
+import { addCategory } from 'store/slices/tickets.slice'
 import { type IListTitle } from 'types'
 
 const schema = yup
@@ -13,14 +13,15 @@ const schema = yup
   })
   .required()
 
-export const AddBoardsCardComponent: React.FC = () => {
+export const AddCategoryCardComponent: React.FC = () => {
   const dispatch = useDispatch()
-  const { register, handleSubmit } = useForm<IListTitle>({
+  const { register, handleSubmit, setValue } = useForm<IListTitle>({
     resolver: yupResolver(schema),
   })
 
   const submitHandler = (data: IListTitle): void => {
-    dispatch(addBoard(data.listTitle))
+    dispatch(addCategory(data.listTitle))
+    setValue('listTitle', '')
   }
 
   return (
